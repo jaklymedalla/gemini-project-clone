@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
+import { Context } from "../../Context/Context";
 
 const Main = () => {
+  const { onSent, loading } = useContext(Context);
   return (
     <div className="main">
       <div className="nav">
@@ -48,11 +50,17 @@ const Main = () => {
               Gemini may display inaccurate info, including about people, so
               double-check its responses
             </p>
+             <button 
+            onClick={() => onSent("What is ReactJS")} 
+            disabled={loading}
+        >
+            {loading ? "Thinking..." : "Send Request"}
+        </button>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+//cont 42:48
 export default Main;
