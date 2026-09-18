@@ -7,7 +7,7 @@ const ai = new GoogleGenAI({
 const runGeminiChat = async (prompt) => {
     // Switching to standard generateContent reduces hidden multi-step API calls
     const response = await ai.models.generateContent({
-        model: 'gemini-3.1-flash-lite', // Flash has much higher free limits than Pro Preview
+        model: 'gemini-3.1-flash-lite', 
         contents: prompt,
         config: {
             temperature: 1,
@@ -16,6 +16,7 @@ const runGeminiChat = async (prompt) => {
         }
     });
 
+  
     return response.text;
 };
 
